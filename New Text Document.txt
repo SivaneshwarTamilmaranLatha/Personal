@@ -1,0 +1,40 @@
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get update
+Install Elasticsearch:
+bash
+Copy code
+sudo apt-get install elasticsearch
+Enable and start Elasticsearch:
+bash
+Copy code
+sudo systemctl enable elasticsearch
+sudo systemctl start elasticsearch
+sudo systemctl status elasticsearch
+Test Elasticsearch:
+bash
+Copy code
+curl -X GET "localhost:9200"
+1.3 Install Kibana
+Install Kibana:
+bash
+Copy code
+sudo apt-get install kibana
+Enable and start Kibana:
+bash
+Copy code
+sudo systemctl enable kibana
+sudo systemctl start kibana
+sudo systemctl status kibana
+Access Kibana in a browser:
+Go to http://<VM_IP>:5601.
+1.4 Install Logstash
+Install Logstash:
+bash
+Copy code
+sudo apt-get install logstash
+Confirm installation:
+bash
+Copy code
+logstash --version

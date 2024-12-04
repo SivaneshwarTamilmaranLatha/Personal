@@ -1,0 +1,20 @@
+input {
+  file {
+    path => "/home/user/sample.csv"
+    start_position => "beginning"
+    sincedb_path => "/dev/null"
+  }
+}
+filter {
+  csv {
+    separator => ","
+    columns => ["column1", "column2", "column3"] # Adjust as per your CSV structure
+  }
+}
+output {
+  elasticsearch {
+    hosts => ["http://localhost:9200"]
+    index => "sample_data"
+  }
+  stdout { codec => rubydebug }
+}
